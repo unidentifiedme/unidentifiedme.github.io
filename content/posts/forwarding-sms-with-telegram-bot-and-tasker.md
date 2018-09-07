@@ -20,13 +20,13 @@ tags: [Android, Tasker, Telegram]
 	- 为该 Profile 配置对应的 Task
 	- 调试
 
-# 新建和使用 Telegram Bot
+## 新建和使用 Telegram Bot
 
-## 建立一个 Telegram Bot，获得 Telegram Bot Token
+### 建立一个 Telegram Bot，获得 Telegram Bot Token
 
 参考 [Telegram Bot 的文档](https://core.telegram.org/bots#3-how-do-i-create-a-bot)，新建一个 Bot，并获得 Token。
 
-## 调用 API
+### 调用 API
 参考 [Telegram Bot API 文档中关于鉴权的描述](https://core.telegram.org/bots/api#authorizing-your-bot)，调用任何 API 的格式都是 `https://api.telegram.org/bot<token>/METHOD_NAME`，同时接受 HTTP GET 和 HTTP POST。
 
 转发短信所需要用到的 API 是 [Send Message](https://core.telegram.org/bots/api#sendmessage)。需要用到的参数只有 `chat_id`，`text` 和 `parse_mode`。其中 `text` 就是 Bot 向 Telegram 用户发送的内容，`parse_mode` 用于表示 `text` 中内容的解析方式，`chat_id` 是对话 ID。
@@ -35,15 +35,15 @@ tags: [Android, Tasker, Telegram]
 
 在浏览器中键入这样的 URL 就可以正常调用 Telegram Bot API 来发送消息给自己了。`https://api.telegram.org/bot<TOKEN>/sendMessage?text=hello_world&chat_id=<YOUR_CHAT_ID>`。此时你将收到发自刚刚新建的 Bot 的消息 “hello_world”。
 
-# 配置 Tasker 来转发短信
+## 配置 Tasker 来转发短信
 
 至此我们已经能够通过 Bot 给自己发送任何消息了，接下来就是如何获得短信内容，并调用以上 API 的过程。[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm) 是一款 Android 上的软件，可以监听各种系统事件，并且执行相应任务的软件。
 
-## 在 Tasker 中配置 Profile
+### 在 Tasker 中配置 Profile
 
 在 Tasker 的 Profiles tab 中新建一个 Event 类型的 Profile，类型选择 Received Text，按需求配置是否需要过滤类型，发送者和内容。
 
-## 为该 Profile 配置对应的 Task
+### 为该 Profile 配置对应的 Task
 
 1. 返回后 Tasker 会提示为当前 Profile 配置对应的任务，这里选择 New Task，并输入任务的名字。
 2. 输入名字后会自动进入任务编辑，点击右下角的按钮新建 Action，选择 Action 类型为 HTTP Post。
@@ -64,11 +64,11 @@ tags: [Android, Tasker, Telegram]
 
 编辑完成后需要点击右上角的按钮应用更改。
 
-## 调试
+### 调试
 
 Tasker 的任务提供了直接运行的功能。进入刚刚新建的 Task，点击左下角的“Run”按钮，此时 Bot 就会发送上文 `text` 中的内容。如果不成功，详细对照上文步骤。
 
-# 其他
+## 其他
 
 通过这样的模式还可以实现通知未接来电等等一系列功能。
 
