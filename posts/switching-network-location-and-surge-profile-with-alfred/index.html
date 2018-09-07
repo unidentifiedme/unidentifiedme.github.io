@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='背景 忍不了公司的 Windows 电脑，所以自购了一台 Mac 带到公司去开发，同时也作为我的个人电脑使用。
+几点实事  在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。 macOS 设置了 PAC 的情况下 Bypass proxy settings 将不在生效。 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。 CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。  解决方案 在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。
+在家：系统不设置任何代理，CLI 代理（环境变量）仍然保持使用 Surge 的代理，Surge 的上游代理设置为 Shadowsocks。
+  Location System Proxy CLI Proxy Surge Profile   Upstream Rules   Home None Surge Shadowsocks Daily rules   Work Surge Surge HTTP proxy provided by my employer Working rules   上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='使用 Alfred 来切换 Network Location 和 Surge Profile • Nichijou'>
+<meta property='og:description' content='背景 忍不了公司的 Windows 电脑，所以自购了一台 Mac 带到公司去开发，同时也作为我的个人电脑使用。
+几点实事  在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。 macOS 设置了 PAC 的情况下 Bypass proxy settings 将不在生效。 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。 CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。  解决方案 在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。
+在家：系统不设置任何代理，CLI 代理（环境变量）仍然保持使用 Surge 的代理，Surge 的上游代理设置为 Shadowsocks。
+  Location System Proxy CLI Proxy Surge Profile   Upstream Rules   Home None Surge Shadowsocks Daily rules   Work Surge Surge HTTP proxy provided by my employer Working rules   上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。'>
+<meta property='og:url' content='https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/'>
+<meta property='og:site_name' content='Nichijou'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='Alfred'><meta property='article:tag' content='AppleScript'><meta property='article:tag' content='macOS'><meta property='article:tag' content='Network Location'><meta property='article:tag' content='Surge'><meta property='article:published_time' content='2018-09-07T20:53:45&#43;08:00'/><meta property='article:modified_time' content='2018-09-07T20:53:45&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.48" />
+
+  <title>使用 Alfred 来切换 Network Location 和 Surge Profile • Nichijou</title>
+  <link rel='canonical' href='https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.4267b3fa.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+
+
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'>
+
+    <div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-social_menu sep-after'><header>
+    <h4 class='title widget-title'>Social</h4>
+  </header><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/unidentifiedme' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/MonnoNing' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/mioning26' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/ning-wang-755a6597' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud no-shuffle'><li>
+        <a href='/tags/alfred/' style='font-size:1em'>Alfred</a>
+      </li><li>
+        <a href='/tags/android/' style='font-size:1em'>Android</a>
+      </li><li>
+        <a href='/tags/applescript/' style='font-size:1em'>AppleScript</a>
+      </li><li>
+        <a href='/tags/network-location/' style='font-size:1em'>Network Location</a>
+      </li><li>
+        <a href='/tags/os-x/' style='font-size:1em'>OS X</a>
+      </li><li>
+        <a href='/tags/ssh/' style='font-size:1em'>SSH</a>
+      </li><li>
+        <a href='/tags/surge/' style='font-size:1em'>Surge</a>
+      </li><li>
+        <a href='/tags/tasker/' style='font-size:1em'>Tasker</a>
+      </li><li>
+        <a href='/tags/telegram/' style='font-size:1em'>Telegram</a>
+      </li><li>
+        <a href='/tags/macos/' style='font-size:2em'>MacOS</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>home</a>
+      </li><li class='item'>
+        <a href='/posts/'>posts</a>
+      </li></ul>
+  </div>
+</nav>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Nichijou</p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>使用 Alfred 来切换 Network Location 和 Surge Profile</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-09-07T20:53:45&#43;08:00'>2018, Sep 07</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+2 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h2 id="背景">背景</h2>
+
+<p>忍不了公司的 Windows 电脑，所以自购了一台 Mac 带到公司去开发，同时也作为我的个人电脑使用。</p>
+
+<h3 id="几点实事">几点实事</h3>
+
+<ol>
+<li>在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。</li>
+<li>macOS 设置了 PAC 的情况下 Bypass proxy settings 将不在生效。</li>
+<li>公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。</li>
+<li>CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。</li>
+</ol>
+
+<h3 id="解决方案">解决方案</h3>
+
+<p>在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。</p>
+
+<p>在家：系统不设置任何代理，CLI 代理（环境变量）仍然保持使用 Surge 的代理，Surge 的上游代理设置为 Shadowsocks。</p>
+
+<table>
+  <tr>
+    <th rowspan="2">Location</th>
+    <th rowspan="2">System Proxy</th>
+    <th rowspan="2">CLI Proxy</th>
+    <th colspan="2">Surge Profile</th>
+  </tr>
+  <tr>
+    <th>Upstream</th>
+    <th>Rules</th>
+  </tr>
+  <tr>
+    <td>Home</td>
+    <td>None</td>
+    <td>Surge</td>
+    <td>Shadowsocks</td>
+    <td>Daily rules</td>
+  </tr>
+  <tr>
+    <td>Work</td>
+    <td>Surge</td>
+    <td>Surge</td>
+    <td>HTTP proxy provided by my employer</td>
+    <td>Working rules</td>
+  </tr>
+</table>
+
+<p>上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。</p>
+
+<h2 id="通过-applescript-来操作-surge">通过 AppleScript 来操作 Surge</h2>
+
+<p>好在还有 AppleScript，查了一下 Surge 并没有 AppleScript 支持，但是最差的情况就是通过 AppleScript 来模拟人工操作来实现。只能选择通过 AppleScript 来点击 Surge 的 MenuBar item 来达到目的。</p>
+
+<p>最终的 AppleScript 如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-applescript" data-lang="applescript"><span style="color:#75715e">-- pass arguments to applescript</span>
+<span style="color:#66d9ef">on</span> run argv
+	<span style="color:#66d9ef">tell</span> application <span style="color:#e6db74">&#34;System Events&#34;</span>
+		<span style="color:#66d9ef">tell</span> process <span style="color:#e6db74">&#34;Surge&#34;</span>
+			<span style="color:#66d9ef">tell</span> <span style="color:#a6e22e">menu</span> bar item <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">menu</span> bar <span style="color:#ae81ff">2</span>
+			<span style="color:#75715e">-- &#34;menu bar 2&#34; is the right side of the entire menu bar, &#34;menu bar item 1&#34; is Surge&#39;s first menu bar item</span>
+				perform action <span style="color:#e6db74">&#34;AXShowMenu&#34;</span>
+				<span style="color:#75715e">-- to show the menu</span>
+				<span style="color:#66d9ef">tell</span> <span style="color:#a6e22e">menu</span> item <span style="color:#e6db74">&#34;Switch Profile&#34;</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">menu</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">to</span> {click, click <span style="color:#a6e22e">menu</span> item (item <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">of</span> argv) <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">menu</span> <span style="color:#ae81ff">1</span>}
+				<span style="color:#75715e">-- switch profile according to the input argument</span>
+			<span style="color:#66d9ef">end</span> <span style="color:#66d9ef">tell</span>
+			<span style="color:#66d9ef">tell</span> <span style="color:#a6e22e">menu</span> bar item <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">menu</span> bar <span style="color:#ae81ff">2</span>
+				perform action <span style="color:#e6db74">&#34;AXShowMenu&#34;</span>
+				keystroke <span style="color:#e6db74">&#34;s&#34;</span> using command down
+				<span style="color:#75715e">-- Command + S, toggle &#34;Set as System Proxy&#34;</span>
+			<span style="color:#66d9ef">end</span> <span style="color:#66d9ef">tell</span>
+		<span style="color:#66d9ef">end</span> <span style="color:#66d9ef">tell</span>
+	<span style="color:#66d9ef">end</span> <span style="color:#66d9ef">tell</span>
+<span style="color:#66d9ef">end</span> run</code></pre></div>
+<h2 id="将切换-network-location-的-workflow-和这个-applescript-整合">将切换 Network Location 的 Workflow 和这个 AppleScript 整合</h2>
+
+<p>我使用的切换 Network Location 的 Workflow 是<a href="http://www.packal.org/workflow/network-location" target="_blank">这个</a>，这个 Workflow 是通过执行 bash 脚本来实现的，其中切换 Network Location 的功能是通过执行 Python 脚本来实现的。Python 部分完全不用改动，直接将我们写好的 AppleScript 放到这个 Workflow 的目录下面，然后在其执行的 bash 中添加一行:</p>
+
+<p><code>/usr/bin/osascript surge.applescript &quot;{query}&quot;</code></p>
+
+<p>这样并没有结束，<code>query</code> 变量是原来的 Workflow 的输入，该 Workflow 提供了选择 Network Location 的功能，不用自己手动输入 Network Location 的名字，所以这个 <code>query</code> 是要切换的目标 Network Location 的名字。在 AppleScript 中，是直接根据这个输入来切换 Profile 的，所以还需要将 Surge Profile 的名字和 Network Location 的名字统一。</p>
+
+<h2 id="其他">其他</h2>
+
+<p>其实已经通过 Surge 来设置了系统的代理，所以 Network Location 的切换已经并不重要了，完全可以省去，但是我就是洁癖，rua。</p>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="https://github.com/jayqizone/Surge-AppleScript" target="_blank">用 AppleScript 操纵 Surge 菜单，提供 Keyboard Maestro 宏样例</a></li>
+<li><a href="https://x-front-team.github.io/2016/11/30/%E4%B8%80%E4%B8%AAsurge%E5%BC%95%E5%8F%91%E7%9A%84%E8%A1%80%E6%A1%88-AppleScript%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" target="_blank">一个 Surge 引发的血案&ndash;AppleScript从入门到放弃</a></li>
+</ol>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/alfred/'>Alfred</a>, <a class='tag' href='/tags/applescript/'>AppleScript</a>, <a class='tag' href='/tags/macos/'>MacOS</a>, <a class='tag' href='/tags/network-location/'>Network Location</a>, <a class='tag' href='/tags/surge/'>Surge</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/forwarding-sms-with-telegram-bot-and-tasker/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>使用 Telegram Bot 和 Tasker 转发短信</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><div class='copyright'>
+  <p> &copy; 2015-2018 Ning Wang </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.59f76c44.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

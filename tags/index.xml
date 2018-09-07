@@ -5,10 +5,19 @@
     <link>https://blog.ningwang.com/tags/</link>
     <description>Recent content in Tags on Nichijou</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Jun 2018 20:53:45 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Sep 2018 20:53:45 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.ningwang.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Alfred</title>
+      <link>https://blog.ningwang.com/tags/alfred/</link>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
+      
+      <guid>https://blog.ningwang.com/tags/alfred/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Android</title>
@@ -20,11 +29,29 @@
     </item>
     
     <item>
+      <title>AppleScript</title>
+      <link>https://blog.ningwang.com/tags/applescript/</link>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
+      
+      <guid>https://blog.ningwang.com/tags/applescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>MacOS</title>
       <link>https://blog.ningwang.com/tags/macos/</link>
-      <pubDate>Sun, 27 Sep 2015 20:21:36 +0800</pubDate>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
       
       <guid>https://blog.ningwang.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network Location</title>
+      <link>https://blog.ningwang.com/tags/network-location/</link>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
+      
+      <guid>https://blog.ningwang.com/tags/network-location/</guid>
       <description></description>
     </item>
     
@@ -43,6 +70,15 @@
       <pubDate>Sun, 27 Sep 2015 20:21:36 +0800</pubDate>
       
       <guid>https://blog.ningwang.com/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Surge</title>
+      <link>https://blog.ningwang.com/tags/surge/</link>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
+      
+      <guid>https://blog.ningwang.com/tags/surge/</guid>
       <description></description>
     </item>
     

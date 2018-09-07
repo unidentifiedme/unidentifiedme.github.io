@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.ningwang.com/posts/forward-sms-using-telegram-bot-and-tasker/</loc>
+    <loc>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/posts/forwarding-sms-with-telegram-bot-and-tasker/</loc>
     <lastmod>2018-06-20T20:53:45+08:00</lastmod>
   </url>
   
@@ -13,8 +18,20 @@
   </url>
   
   <url>
+    <loc>https://blog.ningwang.com/tags/alfred/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ningwang.com/tags/android/</loc>
     <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/tags/applescript/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,13 +47,19 @@
   
   <url>
     <loc>https://blog.ningwang.com/tags/macos/</loc>
-    <lastmod>2015-09-27T20:21:36+08:00</lastmod>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/tags/network-location/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.ningwang.com/</loc>
-    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -48,7 +71,7 @@
   
   <url>
     <loc>https://blog.ningwang.com/posts/</loc>
-    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,8 +87,14 @@
   </url>
   
   <url>
+    <loc>https://blog.ningwang.com/tags/surge/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ningwang.com/tags/</loc>
-    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   

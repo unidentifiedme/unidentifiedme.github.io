@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AppleScript on Nichijou</title>
+    <link>https://blog.ningwang.com/tags/applescript/</link>
+    <description>Recent content in AppleScript on Nichijou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 07 Sep 2018 20:53:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.ningwang.com/tags/applescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 Alfred 来切换 Network Location 和 Surge Profile</title>
+      <link>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</link>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
+      
+      <guid>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</guid>
+      <description>背景 忍不了公司的 Windows 电脑，所以自购了一台 Mac 带到公司去开发，同时也作为我的个人电脑使用。
+几点实事  在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。 macOS 设置了 PAC 的情况下 Bypass proxy settings 将不在生效。 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。 CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。  解决方案 在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。
+在家：系统不设置任何代理，CLI 代理（环境变量）仍然保持使用 Surge 的代理，Surge 的上游代理设置为 Shadowsocks。
+  Location System Proxy CLI Proxy Surge Profile   Upstream Rules   Home None Surge Shadowsocks Daily rules   Work Surge Surge HTTP proxy provided by my employer Working rules   上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。</description>
+    </item>
+    
+  </channel>
+</rss>
