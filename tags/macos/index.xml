@@ -17,18 +17,18 @@
       
       <guid>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</guid>
       <description>背景 忍不了公司的 Windows 电脑，所以自购了一台 Mac 带到公司去开发，同时也作为我的个人电脑使用。
-几点实事  在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。 macOS 设置了 PAC 的情况下 Bypass proxy settings 将不在生效。 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。 CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。  解决方案 在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。
+几点实事  在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。 macOS 设置了 PAC 的情况下 Bypass proxy settings 将不再生效。 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。 CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。  解决方案 在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。
 在家：系统不设置任何代理，CLI 代理（环境变量）仍然保持使用 Surge 的代理，Surge 的上游代理设置为 Shadowsocks。
   Location System Proxy CLI Proxy Surge Profile   Upstream Rules   Home None Surge Shadowsocks Daily rules   Work Surge Surge HTTP proxy provided by my employer Working rules   上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。</description>
     </item>
     
     <item>
-      <title>macOS（OS X） 中的 SSH Session 管理</title>
+      <title>macOS 中的 SSH Session 管理</title>
       <link>https://blog.ningwang.com/posts/ssh-session-management-on-macos/</link>
       <pubDate>Sun, 27 Sep 2015 20:21:36 +0800</pubDate>
       
       <guid>https://blog.ningwang.com/posts/ssh-session-management-on-macos/</guid>
-      <description>之前一直使用 Windows，所以一直都能用到 XShell 或者 Putty 这样的软件，在登录 SSH 的同时还能管理 SSH Session。切换到 OS X 下却有点蛋疼，虽然 SSH 命令没有 Session 管理的功能，但是略微配置一下就能变的比 Windows 好用不少。
+      <description>之前一直使用 Windows，所以一直都能用到 XShell 或者 Putty 这样的软件，在登录 SSH 的同时还能管理 SSH Session。切换到 macOS 下却有点蛋疼，虽然 SSH 命令没有 Session 管理的功能，但是略微配置一下就能变的比 Windows 好用不少。
 配置完成后可以做到：
  存储 Session 使用 SSH Key 免密码登录 Session 自动补全  存储 Session 编辑 ~/.ssh/config 文件
 Host dev HostName example.com User username  详细的选项可以在 /etc/ssh/ssh_config 中查看。现在在 ssh 命令后面直接跟上别名就好了。
