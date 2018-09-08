@@ -12,7 +12,7 @@ tags: [Alfred, AppleScript, macOS, Network Location, Surge]
 ### 几点实事
 
 1. 在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。
-2. macOS 设置了 PAC 的情况下 Bypass proxy settings 将不在生效。
+2. macOS 设置了 PAC 的情况下 Bypass proxy settings 将不再生效。
 3. 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。
 4. CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。
 

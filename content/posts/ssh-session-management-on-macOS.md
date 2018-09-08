@@ -1,18 +1,16 @@
 ---
-title: "macOS（OS X） 中的 SSH Session 管理"
+title: "macOS 中的 SSH Session 管理"
 date: 2015-09-27T20:21:36+08:00
-tags: [macOS, OS X, SSH]
+tags: [macOS, SSH]
 ---
 
-之前一直使用 Windows，所以一直都能用到 XShell 或者 Putty 这样的软件，在登录 SSH 的同时还能管理 SSH Session。切换到 OS X 下却有点蛋疼，虽然 SSH 命令没有 Session 管理的功能，但是略微配置一下就能变的比 Windows 好用不少。
+之前一直使用 Windows，所以一直都能用到 XShell 或者 Putty 这样的软件，在登录 SSH 的同时还能管理 SSH Session。切换到 macOS 下却有点蛋疼，虽然 SSH 命令没有 Session 管理的功能，但是略微配置一下就能变的比 Windows 好用不少。
 
 配置完成后可以做到：
 
 1. 存储 Session
 2. 使用 SSH Key 免密码登录
 3. Session 自动补全
-
- <!-- more -->
 
 # 存储 Session
 
