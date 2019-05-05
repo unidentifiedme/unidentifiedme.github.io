@@ -43,10 +43,13 @@ dateFormat = "2006, Jan 02"
 listDateFormat = "2006, Jan 02"
 archiveDateFormat = "Jan 02"
 hideEntryNavigation = ["page"] # boolean / array of sections
+hideEntryMeta = ["page"] # boolean / array of sections
 showReadingTime = true
+showLastmod = true
 taxonomyCloudShuffle = true
 accentColor = "#ffcd00"
 hideMainMenu = false
+rtl = false
 
 [params.sidebar]
 enable = true
@@ -82,17 +85,51 @@ twitter = "MonnoNing"
 # youtube = "UCT-U0rNerYxItGcuoPX-WYA"
 
 [params.comments]
+enable = true
+
+# Isso: https://posativ.org/isso/
+[params.comments.isso]
 enable = false
+scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
+dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [params.comments.staticman]
-enable = true
+enable = false
 apiEndpoint = "https://api.staticman.net/v2/entry"
 maxDepth = 2
-
-[params.comments.staticman.github]
 username = "MunifTanjim"
 repository = "minimo"
 branch = "master"
+
+# Utterances: https://utteranc.es
+[params.comments.utterances]
+enable = false
+issueTerm = "pathname" # pathname / url / title
+
+[params.comments.utterances.github]
+username = "MunifTanjim"
+repository = "minimo"
+
+# Valine.
+# You can get your appid and appkey from https://leancloud.cn
+# more info please open https://valine.js.org
+[params.comments.valine]
+enable = true
+appId = 'pSwEufjLkKQzG4jFEP2dB4Lm-gzGzoHsz'
+appKey = 'UUzSHiXp3jbaxRKQL5knl561'
+notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+verify = false # Verification code
+avatar = 'mm' 
+placeholder = ''
+visitor = true
+
+[params.search]
+client = "fuse" # algolia / fuse / lunr
+
+[params.search.algolia]
+appId = ""
+indexName = ""
+searchApiKey = ""
 
 [taxonomies]
 author = "authors"
@@ -112,11 +149,10 @@ page = "/:slug/"
     name = "posts"
     url = "/posts/"
     weight = -20
-  # [[menu.main]]
-    # identifier = "about"
-    # name = "about"
-    # url = "/about/"
-    # weight = -10
+  [[menu.main]]
+    name = "about"
+    url = "/about/"
+    weight = -10
 
 [blackfriday]
 hrefTargetBlank = true
