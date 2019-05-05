@@ -3,18 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</loc>
-    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+    <loc>https://blog.ningwang.com/pages/about/</loc>
+    <lastmod>2018-09-17T15:07:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.ningwang.com/posts/forwarding-sms-with-telegram-bot-and-tasker/</loc>
-    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <loc>https://blog.ningwang.com/</loc>
+    <lastmod>2018-09-17T15:07:53+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ningwang.com/posts/ssh-session-management-on-macos/</loc>
-    <lastmod>2015-09-27T20:21:36+08:00</lastmod>
+    <loc>https://blog.ningwang.com/pages/</loc>
+    <lastmod>2018-09-17T15:07:53+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -24,29 +26,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ningwang.com/tags/android/</loc>
-    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ningwang.com/tags/applescript/</loc>
-    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ningwang.com/authors/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ningwang.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ningwang.com/tags/macos/</loc>
     <lastmod>2018-09-07T20:53:45+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -58,25 +38,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ningwang.com/</loc>
-    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ningwang.com/posts/</loc>
     <lastmod>2018-09-07T20:53:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ningwang.com/tags/ssh/</loc>
-    <lastmod>2015-09-27T20:21:36+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ningwang.com/series/</loc>
     <priority>0</priority>
   </url>
   
@@ -93,6 +56,23 @@
   </url>
   
   <url>
+    <loc>https://blog.ningwang.com/tags/macos/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</loc>
+    <lastmod>2018-09-07T20:53:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/tags/android/</loc>
+    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ningwang.com/tags/tasker/</loc>
     <lastmod>2018-06-20T20:53:45+08:00</lastmod>
     <priority>0</priority>
@@ -101,6 +81,37 @@
   <url>
     <loc>https://blog.ningwang.com/tags/telegram/</loc>
     <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/posts/forwarding-sms-with-telegram-bot-and-tasker/</loc>
+    <lastmod>2018-06-20T20:53:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/tags/ssh/</loc>
+    <lastmod>2015-09-27T20:21:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/posts/ssh-session-management-on-macos/</loc>
+    <lastmod>2015-09-27T20:21:36+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ningwang.com/series/</loc>
     <priority>0</priority>
   </url>
   

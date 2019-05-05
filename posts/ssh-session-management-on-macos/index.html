@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='之前一直使用 Windows，所以一直都能用到 XShell 或者 Putty 这样的软件，在登录 SSH 的同时还能管理 SSH Session。切换到 macOS 下却有点蛋疼，虽然 SSH 命令没有 Session 管理的功能，但是略微配置一下就能变的比 Windows 好用不少。
@@ -25,27 +23,23 @@ ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名�
 <meta property='og:site_name' content='Nichijou'>
 <meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='macOS'><meta property='article:tag' content='SSH'><meta property='article:published_time' content='2015-09-27T20:21:36&#43;08:00'/><meta property='article:modified_time' content='2015-09-27T20:21:36&#43;08:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.48" />
+<meta name="generator" content="Hugo 0.55.5" />
 
   <title>macOS 中的 SSH Session 管理 • Nichijou</title>
   <link rel='canonical' href='https://blog.ningwang.com/posts/ssh-session-management-on-macos/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.4267b3fa.css'><link rel='stylesheet' href='/css/custom.css'><style>
+<link rel='stylesheet' href='/assets/css/main.fb20af92.css'><link rel='stylesheet' href='/css/custom.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
   
 
 </head>
-
-
 <body class='page type-posts has-sidebar'>
 
-  <div class='site'>
-
-    <div id='sidebar' class='sidebar'>
+  <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
 
   <div class='container'><section class='widget widget-social_menu sep-after'><header>
@@ -102,6 +96,8 @@ ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名�
       </li><li>
         <a href='/tags/applescript/' style='font-size:1em'>AppleScript</a>
       </li><li>
+        <a href='/tags/macos/' style='font-size:2em'>macOS</a>
+      </li><li>
         <a href='/tags/network-location/' style='font-size:1em'>Network Location</a>
       </li><li>
         <a href='/tags/ssh/' style='font-size:1em'>SSH</a>
@@ -111,8 +107,6 @@ ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名�
         <a href='/tags/tasker/' style='font-size:1em'>Tasker</a>
       </li><li>
         <a href='/tags/telegram/' style='font-size:1em'>Telegram</a>
-      </li><li>
-        <a href='/tags/macos/' style='font-size:2em'>MacOS</a>
       </li></ul>
 </div>
 
@@ -121,11 +115,7 @@ ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名�
 </div>
 
   <div class='sidebar-overlay'></div>
-</div>
-
-    <div class='main'>
-
-      <nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
   <div class='container'>
     <a class='screen-reader-text' href='#content'>Skip to Content</a>
 
@@ -151,9 +141,13 @@ ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名�
         <a href='/'>home</a>
       </li><li class='item'>
         <a href='/posts/'>posts</a>
+      </li><li class='item'>
+        <a href='/about/'>about</a>
       </li></ul>
   </div>
-</nav>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
@@ -173,8 +167,7 @@ ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名�
       
 
     </div>
-    
-<div class='entry-meta'>
+    <div class='entry-meta'>
   <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -237,17 +230,17 @@ One min read
 <p>SSH Key 分为公钥和私钥，公钥放在被 SSH 的机器上，私钥自己拿着。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa</code></pre></div>
 <p>使用上面的命令生成一对密钥，可以自己取名字，建议在 ~/.ssh/ 目录下执行。生成的两个文件中，后缀为pub的就是公钥，有多百种方法可以把公钥放倒服务器上，scp, sftp等等，但是要注意authorized_keys存在与否的区别。也有一键式的命令 ssh-copy-id 来复制 SSH Key</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># scp
-</span><span style="color:#75715e"></span>scp public_key username@example.com:~/.ssh/authorized_keys
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># scp</span>
+scp public_key username@example.com:~/.ssh/authorized_keys
 
-<span style="color:#75715e"># ssh-copy-id
-</span><span style="color:#75715e"></span>ssh-copy-id username@example.com</code></pre></div>
+<span style="color:#75715e"># ssh-copy-id</span>
+ssh-copy-id username@example.com</code></pre></div>
 <p>然后继续编辑刚才的 ~/.ssh/config 文件，在想要使用 SSH Key 登录的 Host 下加上</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">	PreferredAuthentications publickey
 	IdentityFile ~/.ssh/private_key_name</code></pre></div>
 <p>现在登录就不需要密码了，可以禁用密码登录来提高安全性，前提是保证 SSH Key 的安全。编辑服务器上的 /etc/ssh/sshd_config 并重启 ssh 服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Change to no to disable tunnelled clear text passwords
-</span><span style="color:#75715e"></span>PasswordAuthentication no</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Change to no to disable tunnelled clear text passwords</span>
+PasswordAuthentication no</code></pre></div>
 <h1 id="session-自动补全">Session 自动补全</h1>
 
 <p>貌似 zsh 自带这个功能，如果使用 bash 可以使用<a href="http://www.commandlinefu.com/commands/view/2759/ssh-autocomplete" target="_blank">这里</a>的方法来补全别名。</p>
@@ -262,7 +255,7 @@ One min read
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/macos/'>MacOS</a>, <a class='tag' href='/tags/ssh/'>SSH</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/macos/'>macOS</a>, <a class='tag' href='/tags/ssh/'>SSH</a></div>
 
   </div>
 </footer>
@@ -285,22 +278,46 @@ One min read
 </nav>
 
 
-
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><span id="/posts/ssh-session-management-on-macos/" class="leancloud_visitors" data-flag-title="macOS 中的 SSH Session 管理">
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">1000000</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'pSwEufjLkKQzG4jFEP2dB4Lm-gzGzoHsz',
+      appKey: 'UUzSHiXp3jbaxRKQL5knl561',
+      notify:  false , 
+      verify:  false , 
+      avatar:'mm', 
+      placeholder: '',
+      visitor:  true 
+  });
+</script>
+</div>
+  </div>
+</section>
 
       </main>
 
       <footer id='footer' class='footer'>
         <div class='container sep-before'><div class='copyright'>
-  <p> &copy; 2015-2018 Ning Wang </p>
+  <p> &copy; 2015-2019 Ning Wang </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.59f76c44.js'></script><script src='/js/custom.js'></script>
+<script src='/assets/js/main.9e5c4cf4.js'></script><script src='/js/custom.js'></script>
 
 </body>
 
