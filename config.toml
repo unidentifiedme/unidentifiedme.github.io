@@ -119,9 +119,9 @@ appId = 'pSwEufjLkKQzG4jFEP2dB4Lm-gzGzoHsz'
 appKey = 'UUzSHiXp3jbaxRKQL5knl561'
 notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
 verify = false # Verification code
-avatar = 'mm' 
-placeholder = ''
-visitor = true
+avatar = 'mp' 
+placeholder = 'Yet Another Placeholder'
+visitor = false
 
 [params.search]
 client = "fuse" # algolia / fuse / lunr
