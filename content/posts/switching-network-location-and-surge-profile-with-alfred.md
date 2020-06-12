@@ -1,5 +1,5 @@
 ---
-title: "使用 Alfred 来切换 Network Location 和 Surge Profile"
+title: "使用 Alfred 切换 Network Location 和 Surge Profile"
 date: 2018-09-07T20:53:45+08:00
 tags: [Alfred, AppleScript, macOS, Network Location, Surge]
 ---
