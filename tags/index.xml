@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Nichijou</title>
     <link>https://blog.ningwang.com/tags/</link>
     <description>Recent content in Tags on Nichijou</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 07 Sep 2018 20:53:45 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2020 08:39:23 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.ningwang.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Networking</title>
+      <link>https://blog.ningwang.com/tags/networking/</link>
+      <pubDate>Fri, 12 Jun 2020 08:39:23 +0000</pubDate>
+      
+      <guid>https://blog.ningwang.com/tags/networking/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Alfred</title>
@@ -29,6 +38,15 @@
     </item>
     
     <item>
+      <title>macOS</title>
+      <link>https://blog.ningwang.com/tags/macos/</link>
+      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
+      
+      <guid>https://blog.ningwang.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Network Location</title>
       <link>https://blog.ningwang.com/tags/network-location/</link>
       <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
@@ -43,15 +61,6 @@
       <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
       
       <guid>https://blog.ningwang.com/tags/surge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>macOS</title>
-      <link>https://blog.ningwang.com/tags/macos/</link>
-      <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
-      
-      <guid>https://blog.ningwang.com/tags/macos/</guid>
       <description></description>
     </item>
     

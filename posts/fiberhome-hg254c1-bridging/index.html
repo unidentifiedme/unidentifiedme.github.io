@@ -2,21 +2,31 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content=''>
+<meta name='description' content='内容完全来自这篇 Blog，这里留给自己备份用。
+启用 Telnet 访问如下 URL 开启 FiberHome HG2543C1 的 telnet
+http://$IP:8080/cgi-bin/telnetenable.cgi?telnetenable=1
+telnet 登录 FiberHome HG2543C1，用户 root，密码是默认 Wi-Fi 密码拼接默认 useradmin 密码，即 $DEFAULT_WIFI_PASSWORD$DEFAULT_USERADMIN_PASSWORD
+获取 telecomadmin 密码 用户 telecomadmin 的密码位于 /flash/cfg/agentconf/factory.conf 的 TelecomPasswd 配置项
+获取 PPPoE 帐号和密码 PPPoE 帐号密码位于 /flash/cfg/app_conf/pppoe/chap-secrets
+通过 telecomadmin 帐号设置桥接 将连接 2_INTERNET_B_VID_* 的连接模式改为桥接即可'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Tag: Tasker • Nichijou'>
-<meta property='og:description' content=''>
-<meta property='og:url' content='https://blog.ningwang.com/tags/tasker/'>
+<meta property='og:title' content='FiberHome HG2543C1 桥接 • Nichijou'>
+<meta property='og:description' content='内容完全来自这篇 Blog，这里留给自己备份用。
+启用 Telnet 访问如下 URL 开启 FiberHome HG2543C1 的 telnet
+http://$IP:8080/cgi-bin/telnetenable.cgi?telnetenable=1
+telnet 登录 FiberHome HG2543C1，用户 root，密码是默认 Wi-Fi 密码拼接默认 useradmin 密码，即 $DEFAULT_WIFI_PASSWORD$DEFAULT_USERADMIN_PASSWORD
+获取 telecomadmin 密码 用户 telecomadmin 的密码位于 /flash/cfg/agentconf/factory.conf 的 TelecomPasswd 配置项
+获取 PPPoE 帐号和密码 PPPoE 帐号密码位于 /flash/cfg/app_conf/pppoe/chap-secrets
+通过 telecomadmin 帐号设置桥接 将连接 2_INTERNET_B_VID_* 的连接模式改为桥接即可'>
+<meta property='og:url' content='https://blog.ningwang.com/posts/fiberhome-hg254c1-bridging/'>
 <meta property='og:site_name' content='Nichijou'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content='2020-06-12T08:39:23Z'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='Networking'><meta property='article:published_time' content='2020-06-12T08:39:23Z'/><meta property='article:modified_time' content='2020-06-12T08:39:23Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.72.0" />
 
-  <title>Tag: Tasker • Nichijou</title>
-  <link rel='canonical' href='https://blog.ningwang.com/tags/tasker/'>
-  
-    <link href="https://blog.ningwang.com/tags/tasker/index.xml" rel="alternate" type="application/rss+xml" title="Nichijou" />
+  <title>FiberHome HG2543C1 桥接 • Nichijou</title>
+  <link rel='canonical' href='https://blog.ningwang.com/posts/fiberhome-hg254c1-bridging/'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -27,7 +37,7 @@
   
 
 </head>
-<body class='taxonomy type-tags taxonomy-tag has-sidebar'>
+<body class='page type-posts has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -151,44 +161,114 @@
       <main id='content'>
 
 
-<header class='header'>
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'><span class='taxonomy-name'>Tag: </span>Tasker</h1>
-
+      <h1 class='title'>FiberHome HG2543C1 桥接</h1>
       
 
     </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2020-06-12T08:39:23Z'>2020, Jun 12</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+One min read
+</span>
+
+
+</div>
+
+
   </div>
 </header>
 
-
-
-
-<div class='container list-container'>
-  <ul class='list'>
-    
-      <li class='item'>
-  <div class='meta'>
-    <span>
-  <span class='screen-reader-text'>Posted on </span>
-  <time datetime='2018-06-20T20:53:45&#43;08:00'>2018, Jun 20</time>
-</span>
-
-  </div>
-  <header class='item-header'>
-    <h3 class='item-title'>
-      <a href='/posts/forwarding-sms-with-telegram-bot-and-tasker/'>使用 Telegram Bot 和 Tasker 转发短信</a>
-    </h3>
-  </header>
-</li>
-
-    
-  </ul>
-
+  
   
 
+  <div class='container entry-content'>
+  <p>内容<strong>完全</strong>来自<a href="http://shigc.top/2019/10/17/article4/">这篇 Blog</a>，这里留给自己备份用。</p>
+<h1 id="启用-telnet">启用 Telnet</h1>
+<p>访问如下 URL 开启 FiberHome HG2543C1 的 telnet</p>
+<p><code>http://$IP:8080/cgi-bin/telnetenable.cgi?telnetenable=1</code></p>
+<p>telnet 登录 FiberHome HG2543C1，用户 <code>root</code>，密码是默认 Wi-Fi 密码拼接默认 <code>useradmin</code> 密码，即 <code>$DEFAULT_WIFI_PASSWORD$DEFAULT_USERADMIN_PASSWORD</code></p>
+<h1 id="获取-telecomadmin-密码">获取 <code>telecomadmin</code> 密码</h1>
+<p>用户 <code>telecomadmin</code> 的密码位于 <code>/flash/cfg/agentconf/factory.conf</code> 的 <code>TelecomPasswd</code> 配置项</p>
+<h1 id="获取-pppoe-帐号和密码">获取 PPPoE 帐号和密码</h1>
+<p>PPPoE 帐号密码位于 <code>/flash/cfg/app_conf/pppoe/chap-secrets</code></p>
+<h1 id="通过-telecomadmin-帐号设置桥接">通过 telecomadmin 帐号设置桥接</h1>
+<p>将连接 <code>2_INTERNET_B_VID_*</code> 的连接模式改为桥接即可</p>
+
 </div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/networking/'>Networking</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/switching-network-location-and-surge-profile-with-alfred/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>使用 Alfred 切换 Network Location 和 Surge Profile</a>
+    </div></div>
+</nav>
+
+
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'pSwEufjLkKQzG4jFEP2dB4Lm-gzGzoHsz',
+      appKey: 'UUzSHiXp3jbaxRKQL5knl561',
+      notify:  false , 
+      verify:  false , 
+      avatar:'mp', 
+      placeholder: 'Yet Another Placeholder',
+      visitor:  false 
+  });
+</script>
+</div>
+  </div>
+</section>
 
       </main>
 

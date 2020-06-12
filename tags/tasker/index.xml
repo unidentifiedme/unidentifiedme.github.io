@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tasker on Nichijou</title>
@@ -18,7 +18,7 @@
       <guid>https://blog.ningwang.com/posts/forwarding-sms-with-telegram-bot-and-tasker/</guid>
       <description>要求：
  接收短信的设备必须是 Android 设备 需要购买 Tasker 接收短信的设备能正常访问 Telegram Bot API  主要分为以下几步：
- 新建和使用 Telegram Bot  建立一个 Telegram Bot，获得 Telegram Bot Token 调用 API  配置 Tasker 来转发短信  在 Tasker 中配置 Profile 为该 Profile 配置对应的 Task 调试   新建和使用 Telegram Bot 建立一个 Telegram Bot，获得 Telegram Bot Token 参考 Telegram Bot 的文档，新建一个 Bot，并获得 Token。
+ 新建和使用 Telegram Bot  建立一个 Telegram Bot，获得 Telegram Bot Token 调用 API   配置 Tasker 来转发短信  在 Tasker 中配置 Profile 为该 Profile 配置对应的 Task 调试    新建和使用 Telegram Bot 建立一个 Telegram Bot，获得 Telegram Bot Token 参考 Telegram Bot 的文档，新建一个 Bot，并获得 Token。
 调用 API 参考 Telegram Bot API 文档中关于鉴权的描述，调用任何 API 的格式都是 https://api.telegram.org/bot&amp;lt;token&amp;gt;/METHOD_NAME，同时接受 HTTP GET 和 HTTP POST。</description>
     </item>
     

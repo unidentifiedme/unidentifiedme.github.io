@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>macOS on Nichijou</title>
@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>使用 Alfred 来切换 Network Location 和 Surge Profile</title>
+      <title>使用 Alfred 切换 Network Location 和 Surge Profile</title>
       <link>https://blog.ningwang.com/posts/switching-network-location-and-surge-profile-with-alfred/</link>
       <pubDate>Fri, 07 Sep 2018 20:53:45 +0800</pubDate>
       
@@ -19,7 +19,8 @@
       <description>背景 忍不了公司的 Windows 电脑，所以自购了一台 Mac 带到公司去开发，同时也作为我的个人电脑使用。
 几点实事  在公司需要使用公司提供的 PAC；在家里在路由器上搭建了透明代理，本机不需要配置任何代理。 macOS 设置了 PAC 的情况下 Bypass proxy settings 将不再生效。 公司提供的 PAC 行为不如我自己设置的 Rule-based Proxy 来的稳定，开发需要稳定的网络行为。 CLI 的代理设置切换通过 export 环境变量来设置，切换需要重开 iTerm Tab 或者在当前 Tab 内重新 source，并不方便。  解决方案 在公司：不使用公司提供的 PAC，使用 PAC 中的外网代理作为 Surge 的上游代理，设置 Surge 提供的代理为系统代理和 CLI 代理，通过 Surge 来决定请求是否走代理。
 在家：系统不设置任何代理，CLI 代理（环境变量）仍然保持使用 Surge 的代理，Surge 的上游代理设置为 Shadowsocks。
-  Location System Proxy CLI Proxy Surge Profile   Upstream Rules   Home None Surge Shadowsocks Daily rules   Work Surge Surge HTTP proxy provided by my employer Working rules   上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。</description>
+上述方法涉及到系统代理设置的切换可以通过 macOS 的 Network Location 功能来实现，并且有现成的 Alfred Workflow 可以使用，但是 Surge 切换则完全需要手动控制，这就忍不了了。所以目标是能够通过 Alfred 来控制 Surge。
+通过 AppleScript 来操作 Surge 好在还有 AppleScript，查了一下 Surge 并没有 AppleScript 支持，但是最差的情况就是通过 AppleScript 来模拟人工操作来实现。只能选择通过 AppleScript 来点击 Surge 的 MenuBar item 来达到目的。</description>
     </item>
     
     <item>
@@ -31,10 +32,10 @@
       <description>之前一直使用 Windows，所以一直都能用到 XShell 或者 Putty 这样的软件，在登录 SSH 的同时还能管理 SSH Session。切换到 macOS 下却有点蛋疼，虽然 SSH 命令没有 Session 管理的功能，但是略微配置一下就能变的比 Windows 好用不少。
 配置完成后可以做到：
  存储 Session 使用 SSH Key 免密码登录 Session 自动补全  存储 Session 编辑 ~/.ssh/config 文件
-Host dev HostName example.com User username  详细的选项可以在 /etc/ssh/ssh_config 中查看。现在在 ssh 命令后面直接跟上别名就好了。
+Host dev HostName example.com User username 详细的选项可以在 /etc/ssh/ssh_config 中查看。现在在 ssh 命令后面直接跟上别名就好了。
 使用 SSH Key 免密码登录 SSH Key 分为公钥和私钥，公钥放在被 SSH 的机器上，私钥自己拿着。
 ssh-keygen -t rsa 使用上面的命令生成一对密钥，可以自己取名字，建议在 ~/.ssh/ 目录下执行。生成的两个文件中，后缀为pub的就是公钥，有多百种方法可以把公钥放倒服务器上，scp, sftp等等，但是要注意authorized_keys存在与否的区别。也有一键式的命令 ssh-copy-id 来复制 SSH Key
-# scp scp public_key username@example.</description>
+# scp scp public_key username@example.com:~/.ssh/authorized_keys # ssh-copy-id ssh-copy-id username@example.</description>
     </item>
     
   </channel>
